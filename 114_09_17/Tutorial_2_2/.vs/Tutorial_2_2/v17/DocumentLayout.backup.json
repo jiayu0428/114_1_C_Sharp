@@ -24,16 +24,24 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 2,
           "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{56df62a4-05a3-4e5b-aa1a-99371ccfb997}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
+            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "Form1.cs",
               "DocumentMoniker": "C:\\Users\\m303\\Desktop\\114_1_C_Sharp\\114_09_17\\Tutorial_2_2\\Tutorial_2_2\\Form1.cs",
               "RelativeDocumentMoniker": "Tutorial_2_2\\Form1.cs",
-              "ToolTip": "C:\\Users\\m303\\Desktop\\114_1_C_Sharp\\114_09_17\\Tutorial_2_2\\Tutorial_2_2\\Form1.cs*",
-              "RelativeToolTip": "Tutorial_2_2\\Form1.cs*",
+              "ToolTip": "C:\\Users\\m303\\Desktop\\114_1_C_Sharp\\114_09_17\\Tutorial_2_2\\Tutorial_2_2\\Form1.cs",
+              "RelativeToolTip": "Tutorial_2_2\\Form1.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAlAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-09-17T04:41:21.991Z",
@@ -45,8 +53,8 @@
               "Title": "Tutorial_2_2",
               "DocumentMoniker": "C:\\Users\\m303\\Desktop\\114_1_C_Sharp\\114_09_17\\Tutorial_2_2\\Tutorial_2_2\\Tutorial_2_2.csproj",
               "RelativeDocumentMoniker": "Tutorial_2_2\\Tutorial_2_2.csproj",
-              "ToolTip": "C:\\Users\\m303\\Desktop\\114_1_C_Sharp\\114_09_17\\Tutorial_2_2\\Tutorial_2_2\\Tutorial_2_2.csproj*",
-              "RelativeToolTip": "Tutorial_2_2\\Tutorial_2_2.csproj*",
+              "ToolTip": "C:\\Users\\m303\\Desktop\\114_1_C_Sharp\\114_09_17\\Tutorial_2_2\\Tutorial_2_2\\Tutorial_2_2.csproj",
+              "RelativeToolTip": "Tutorial_2_2\\Tutorial_2_2.csproj",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
               "WhenOpened": "2025-09-17T04:24:40.493Z",
               "EditorCaption": ""
@@ -57,19 +65,11 @@
               "Title": "Form1.cs [\u8A2D\u8A08]",
               "DocumentMoniker": "C:\\Users\\m303\\Desktop\\114_1_C_Sharp\\114_09_17\\Tutorial_2_2\\Tutorial_2_2\\Form1.cs",
               "RelativeDocumentMoniker": "Tutorial_2_2\\Form1.cs",
-              "ToolTip": "C:\\Users\\m303\\Desktop\\114_1_C_Sharp\\114_09_17\\Tutorial_2_2\\Tutorial_2_2\\Form1.cs [\u8A2D\u8A08]*",
-              "RelativeToolTip": "Tutorial_2_2\\Form1.cs [\u8A2D\u8A08]*",
+              "ToolTip": "C:\\Users\\m303\\Desktop\\114_1_C_Sharp\\114_09_17\\Tutorial_2_2\\Tutorial_2_2\\Form1.cs [\u8A2D\u8A08]",
+              "RelativeToolTip": "Tutorial_2_2\\Form1.cs [\u8A2D\u8A08]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-09-17T04:21:30.952Z",
               "EditorCaption": " [\u8A2D\u8A08]"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{56df62a4-05a3-4e5b-aa1a-99371ccfb997}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
             }
           ]
         }
