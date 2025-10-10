@@ -45,6 +45,7 @@
             this.cardbackPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.cardbackPictureBox.TabIndex = 1;
             this.cardbackPictureBox.TabStop = false;
+            this.cardbackPictureBox.Click += new System.EventHandler(this.cardbackPictureBox_Click);
             // 
             // cardfacePictureBox
             // 
