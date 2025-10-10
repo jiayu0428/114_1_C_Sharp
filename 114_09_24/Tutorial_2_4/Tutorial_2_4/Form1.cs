@@ -31,5 +31,10 @@ namespace Tutorial_2_4
         {
             countryLabel.Text = "德國";  
         }
+
+        private void countryLabel_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

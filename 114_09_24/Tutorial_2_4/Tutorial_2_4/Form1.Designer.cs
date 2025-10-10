@@ -58,6 +58,7 @@
             this.countryLabel.TabIndex = 1;
             this.countryLabel.Text = " ";
             this.countryLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.countryLabel.Click += new System.EventHandler(this.countryLabel_Click);
             // 
             // germanPictureBox
             // 
