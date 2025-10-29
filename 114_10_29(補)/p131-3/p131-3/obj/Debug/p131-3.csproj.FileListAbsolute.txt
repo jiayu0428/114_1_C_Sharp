@@ -1,0 +1,10 @@
+C:\Users\m303\Desktop\114_1_C_Sharp\114_10_29(補)\p131-3\p131-3\bin\Debug\p131-3.exe.config
+C:\Users\m303\Desktop\114_1_C_Sharp\114_10_29(補)\p131-3\p131-3\bin\Debug\p131-3.exe
+C:\Users\m303\Desktop\114_1_C_Sharp\114_10_29(補)\p131-3\p131-3\bin\Debug\p131-3.pdb
+C:\Users\m303\Desktop\114_1_C_Sharp\114_10_29(補)\p131-3\p131-3\obj\Debug\p131-3.csproj.AssemblyReference.cache
+C:\Users\m303\Desktop\114_1_C_Sharp\114_10_29(補)\p131-3\p131-3\obj\Debug\p131_3.Form1.resources
+C:\Users\m303\Desktop\114_1_C_Sharp\114_10_29(補)\p131-3\p131-3\obj\Debug\p131_3.Properties.Resources.resources
+C:\Users\m303\Desktop\114_1_C_Sharp\114_10_29(補)\p131-3\p131-3\obj\Debug\p131-3.csproj.GenerateResource.cache
+C:\Users\m303\Desktop\114_1_C_Sharp\114_10_29(補)\p131-3\p131-3\obj\Debug\p131-3.csproj.CoreCompileInputs.cache
+C:\Users\m303\Desktop\114_1_C_Sharp\114_10_29(補)\p131-3\p131-3\obj\Debug\p131-3.exe
+C:\Users\m303\Desktop\114_1_C_Sharp\114_10_29(補)\p131-3\p131-3\obj\Debug\p131-3.pdb
