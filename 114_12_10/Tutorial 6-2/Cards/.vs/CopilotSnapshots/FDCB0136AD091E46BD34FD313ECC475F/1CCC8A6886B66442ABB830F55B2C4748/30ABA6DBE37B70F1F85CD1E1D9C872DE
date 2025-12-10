@@ -1,0 +1,177 @@
+﻿namespace Cards
+{
+    partial class Form1
+    {
+        /// <summary>
+        /// 必需的設計工具變數
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// 清理所有使用中的資源
+        /// </summary>
+        /// <param name="disposing">若為 true，應同時清理 Managed 資源；否則僅清理 Unmanaged 資源</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form 設計工具產生的程式碼
+
+        /// <summary>
+        /// 設計工具支援所需的方法 - 請勿使用程式碼編輯器修改
+        /// 這個方法的內容
+        /// </summary>
+        private void InitializeComponent()
+        {
+            this.cardListBox = new System.Windows.Forms.ListBox();
+            this.showCardButton = new System.Windows.Forms.Button();
+            this.exitButton = new System.Windows.Forms.Button();
+            this.cardPanel = new System.Windows.Forms.Panel();
+            this.kingClubsPictureBox = new System.Windows.Forms.PictureBox();
+            this.tenHeartsPictureBox = new System.Windows.Forms.PictureBox();
+            this.aceSpadesPictureBox = new System.Windows.Forms.PictureBox();
+            this.cardPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.kingClubsPictureBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tenHeartsPictureBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.aceSpadesPictureBox)).BeginInit();
+            this.SuspendLayout();
+            // 
+            // cardListBox - 牌張清單框
+            // 用於顯示可選擇的撲克牌清單
+            // 使用較大字型以提高可讀性
+            // 
+            this.cardListBox.Font = new System.Drawing.Font("微軟正黑體", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.cardListBox.FormattingEnabled = true;
+            this.cardListBox.ItemHeight = 31;
+            this.cardListBox.Items.AddRange(new object[] {
+            "黑桃 Ace",
+            "紅心 10",
+            "梅花 King"});
+            this.cardListBox.Location = new System.Drawing.Point(100, 160);
+            this.cardListBox.Name = "cardListBox";
+            this.cardListBox.Size = new System.Drawing.Size(150, 100);
+            this.cardListBox.TabIndex = 3;
+            // 
+            // showCardButton - 顯示牌張按鈕
+            // 點擊此按鈕可在圖片框中展示選中的牌張
+            // 位於左下方，提供良好的用戶交互體驗
+            // 
+            this.showCardButton.Font = new System.Drawing.Font("微軟正黑體", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.showCardButton.Location = new System.Drawing.Point(40, 275);
+            this.showCardButton.Name = "showCardButton";
+            this.showCardButton.Size = new System.Drawing.Size(130, 45);
+            this.showCardButton.TabIndex = 4;
+            this.showCardButton.Text = "顯示牌張";
+            this.showCardButton.UseVisualStyleBackColor = true;
+            this.showCardButton.Click += new System.EventHandler(this.showCardButton_Click);
+            // 
+            // exitButton - 離開按鈕
+            // 點擊此按鈕可關閉整個應用程式窗體
+            // 位於右下方，與顯示牌張按鈕並排
+            // 
+            this.exitButton.Font = new System.Drawing.Font("微軟正黑體", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.exitButton.Location = new System.Drawing.Point(190, 275);
+            this.exitButton.Name = "exitButton";
+            this.exitButton.Size = new System.Drawing.Size(130, 45);
+            this.exitButton.TabIndex = 5;
+            this.exitButton.Text = "離開";
+            this.exitButton.UseVisualStyleBackColor = true;
+            this.exitButton.Click += new System.EventHandler(this.exitButton_Click);
+            // 
+            // cardPanel - 牌張顯示面板
+            // 包含三個圖片框，用於展示不同的撲克牌圖片
+            // 具有 3D 邊框樣式，增加視覺層次感和美觀度
+            // 
+            this.cardPanel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.cardPanel.Controls.Add(this.kingClubsPictureBox);
+            this.cardPanel.Controls.Add(this.tenHeartsPictureBox);
+            this.cardPanel.Controls.Add(this.aceSpadesPictureBox);
+            this.cardPanel.Location = new System.Drawing.Point(14, 12);
+            this.cardPanel.Name = "cardPanel";
+            this.cardPanel.Size = new System.Drawing.Size(310, 140);
+            this.cardPanel.TabIndex = 7;
+            // 
+            // kingClubsPictureBox - 梅花 King 圖片框
+            // 用於顯示梅花 King 牌的圖片
+            // 初始狀態為隱藏，當用戶選擇梅花 King 時顯示
+            // 
+            this.kingClubsPictureBox.Image = global::Cards.Properties.Resources.King_Clubs;
+            this.kingClubsPictureBox.Location = new System.Drawing.Point(208, 8);
+            this.kingClubsPictureBox.Name = "kingClubsPictureBox";
+            this.kingClubsPictureBox.Size = new System.Drawing.Size(95, 125);
+            this.kingClubsPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.kingClubsPictureBox.TabIndex = 5;
+            this.kingClubsPictureBox.TabStop = false;
+            this.kingClubsPictureBox.Visible = false;
+            // 
+            // tenHeartsPictureBox - 紅心 10 圖片框
+            // 用於顯示紅心 10 牌的圖片
+            // 初始狀態為隱藏，當用戶選擇紅心 10 時顯示
+            // 
+            this.tenHeartsPictureBox.Image = global::Cards.Properties.Resources._10_Hearts;
+            this.tenHeartsPictureBox.Location = new System.Drawing.Point(107, 8);
+            this.tenHeartsPictureBox.Name = "tenHeartsPictureBox";
+            this.tenHeartsPictureBox.Size = new System.Drawing.Size(95, 125);
+            this.tenHeartsPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.tenHeartsPictureBox.TabIndex = 4;
+            this.tenHeartsPictureBox.TabStop = false;
+            this.tenHeartsPictureBox.Visible = false;
+            // 
+            // aceSpadesPictureBox - 黑桃 Ace 圖片框
+            // 用於顯示黑桃 Ace 牌的圖片
+            // 初始狀態為隱藏，當用戶選擇黑桃 Ace 時顯示
+            // 
+            this.aceSpadesPictureBox.Image = global::Cards.Properties.Resources.Ace_Spades;
+            this.aceSpadesPictureBox.Location = new System.Drawing.Point(7, 8);
+            this.aceSpadesPictureBox.Name = "aceSpadesPictureBox";
+            this.aceSpadesPictureBox.Size = new System.Drawing.Size(95, 125);
+            this.aceSpadesPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.aceSpadesPictureBox.TabIndex = 3;
+            this.aceSpadesPictureBox.TabStop = false;
+            this.aceSpadesPictureBox.Visible = false;
+            // 
+            // Form1 - 撲克牌展示應用程式主窗體
+            // 此窗體作為應用程式的主要界面
+            // 包含牌張選擇、顯示和離開功能
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(340, 340);
+            this.Controls.Add(this.cardPanel);
+            this.Controls.Add(this.exitButton);
+            this.Controls.Add(this.showCardButton);
+            this.Controls.Add(this.cardListBox);
+            this.Name = "Form1";
+            this.Text = "撲克牌展示器";
+            this.cardPanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.kingClubsPictureBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tenHeartsPictureBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.aceSpadesPictureBox)).EndInit();
+            this.ResumeLayout(false);
+
+        }
+
+        #endregion
+
+        // 牌張清單框 - 顯示可選擇的撲克牌列表
+        private System.Windows.Forms.ListBox cardListBox;
+        // 顯示牌張按鈕 - 用於展示用戶選中的牌張圖片
+        private System.Windows.Forms.Button showCardButton;
+        // 離開按鈕 - 用於關閉應用程式窗體
+        private System.Windows.Forms.Button exitButton;
+        // 牌張顯示面板 - 作為牌張圖片的容器
+        private System.Windows.Forms.Panel cardPanel;
+        // 梅花 King 圖片框 - 顯示梅花 King 牌的圖片區域
+        private System.Windows.Forms.PictureBox kingClubsPictureBox;
+        // 紅心 10 圖片框 - 顯示紅心 10 牌的圖片區域
+        private System.Windows.Forms.PictureBox tenHeartsPictureBox;
+        // 黑桃 Ace 圖片框 - 顯示黑桃 Ace 牌的圖片區域
+        private System.Windows.Forms.PictureBox aceSpadesPictureBox;
+    }
+}
+

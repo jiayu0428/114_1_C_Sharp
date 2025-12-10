@@ -1,0 +1,47 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace Comprehensive_Practice_1
+{
+    public partial class Form1 : Form
+    {
+        public Form1()
+        {
+            InitializeComponent();
+        }
+
+        private void btnShowHighest_Click(object sender, EventArgs e)
+        {
+            double s1, s2, s3;
+            bool ok1 = double.TryParse(txtQuiz1.Text.Trim(), out s1);
+            bool ok2 = double.TryParse(txtQuiz2.Text.Trim(), out s2);
+            bool ok3 = double.TryParse(txtQuiz3.Text.Trim(), out s3);
+
+            if (!ok1 || !ok2 || !ok3)
+            {
+                MessageBox.Show("請輸入有效的數字成績於小考欄位。", "輸入錯誤", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            double max = Math.Max(s1, Math.Max(s2, s3));
+            string who = "";
+            if (max == s1) who = "小考1";
+            else if (max == s2) who = "小考2";
+            else who = "小考3";
+
+            lblResult.Text = $"{who} 最高分: {max}";
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+    }
+}
