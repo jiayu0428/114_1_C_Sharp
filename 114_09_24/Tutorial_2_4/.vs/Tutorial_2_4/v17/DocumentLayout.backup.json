@@ -3,11 +3,11 @@
   "WorkspaceRootPath": "C:\\Users\\User\\OneDrive\\\u684C\u9762\\114_1_C_Sharp\\114_09_24\\Tutorial_2_4\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{D5E531CF-583B-4B6B-B6D4-2ABD364D952E}|Tutorial_2_4\\Tutorial_2_4.csproj|C:\\Users\\User\\OneDrive\\\u684C\u9762\\114_1_C_Sharp\\114_09_24\\Tutorial_2_4\\tutorial_2_4\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{D5E531CF-583B-4B6B-B6D4-2ABD364D952E}|Tutorial_2_4\\Tutorial_2_4.csproj|c:\\users\\user\\onedrive\\\u684C\u9762\\114_1_c_sharp\\114_09_24\\tutorial_2_4\\tutorial_2_4\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D5E531CF-583B-4B6B-B6D4-2ABD364D952E}|Tutorial_2_4\\Tutorial_2_4.csproj|solutionrelative:tutorial_2_4\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D5E531CF-583B-4B6B-B6D4-2ABD364D952E}|Tutorial_2_4\\Tutorial_2_4.csproj|c:\\users\\user\\onedrive\\\u684C\u9762\\114_1_c_sharp\\114_09_24\\tutorial_2_4\\tutorial_2_4\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{D5E531CF-583B-4B6B-B6D4-2ABD364D952E}|Tutorial_2_4\\Tutorial_2_4.csproj|C:\\Users\\User\\OneDrive\\\u684C\u9762\\114_1_C_Sharp\\114_09_24\\Tutorial_2_4\\tutorial_2_4\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{D5E531CF-583B-4B6B-B6D4-2ABD364D952E}|Tutorial_2_4\\Tutorial_2_4.csproj|solutionrelative:tutorial_2_4\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
@@ -22,8 +22,12 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 2,
           "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
+            },
             {
               "$type": "Document",
               "DocumentIndex": 2,
@@ -32,7 +36,7 @@
               "RelativeDocumentMoniker": "Tutorial_2_4\\Form1.Designer.cs",
               "ToolTip": "C:\\Users\\User\\OneDrive\\\u684C\u9762\\114_1_C_Sharp\\114_09_24\\Tutorial_2_4\\Tutorial_2_4\\Form1.Designer.cs",
               "RelativeToolTip": "Tutorial_2_4\\Form1.Designer.cs",
-              "ViewState": "AgIAAA0AAAAAAAAAAAAjwC8AAAAlAAAAAAAAAA==",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAAABYAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-09-24T04:30:30.55Z",
               "EditorCaption": ""
@@ -45,7 +49,7 @@
               "RelativeDocumentMoniker": "Tutorial_2_4\\Form1.cs",
               "ToolTip": "C:\\Users\\User\\OneDrive\\\u684C\u9762\\114_1_C_Sharp\\114_09_24\\Tutorial_2_4\\Tutorial_2_4\\Form1.cs",
               "RelativeToolTip": "Tutorial_2_4\\Form1.cs",
-              "ViewState": "AgIAAAEAAAAAAAAAAAAAAB8AAAAnAAAAAAAAAA==",
+              "ViewState": "AgIAAB0AAAAAAAAAAAAawCQAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-09-24T04:19:48.137Z",
               "EditorCaption": ""
