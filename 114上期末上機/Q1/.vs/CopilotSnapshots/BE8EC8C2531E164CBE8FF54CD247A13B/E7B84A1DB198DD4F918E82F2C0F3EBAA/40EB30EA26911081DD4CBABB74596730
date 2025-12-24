@@ -1,0 +1,226 @@
+﻿using System;
+using System.Drawing;
+using System.Windows.Forms;
+
+namespace Q1
+{
+    public partial class Form1 : Form
+    {
+        private enum Move { Stone = 0, Paper = 1, Scissors = 2 }
+
+        private int playerWins = 0;
+        private int computerWins = 0;
+        private Random rng = new Random();
+
+        private Image stoneImage;
+        private Image paperImage;
+        private Image scissorsImage;
+
+        private Move lastComputerMove;
+
+        public Form1()
+        {
+            InitializeComponent();
+            CreateMoveImages();
+            UpdateScoreLabels();
+        }
+
+        // 初始化三張圖片（目前以程式繪製簡易圖示）
+        private void CreateMoveImages()
+        {
+            stoneImage = DrawCircleBitmap(Color.Gray, "石");
+            paperImage = DrawRectangleBitmap(Color.WhiteSmoke, "布");
+            scissorsImage = DrawScissorsBitmap(Color.Silver, "剪");
+        }
+
+        // 電腦選擇邏輯模組
+        private Move getCompChoice()
+        {
+            lastComputerMove = (Move)rng.Next(0, 3);
+            return lastComputerMove;
+        }
+
+        // 根據電腦選擇顯示圖片
+        private void showComputerImage(Move m)
+        {
+            computerPictureBox.Image = GetImageForMove(m);
+        }
+
+        // 根據玩家選擇顯示圖片
+        private void showPlayerImage(Move m)
+        {
+            playerPictureBox.Image = GetImageForMove(m);
+        }
+
+        // 判斷勝負、更新分數及結果顯示
+        private void showWinner(Move playerMove, Move computerMove)
+        {
+            int result = CompareMoves(playerMove, computerMove);
+            if (result == 1)
+            {
+                playerWins++;
+                resultLabel.Text = "玩家獲勝！";
+            }
+            else if (result == -1)
+            {
+                computerWins++;
+                resultLabel.Text = "電腦獲勝！";
+            }
+            else
+            {
+                resultLabel.Text = "平手！";
+            }
+
+            UpdateScoreLabels();
+        }
+
+        private Bitmap DrawCircleBitmap(Color back, string text)
+        {
+            var bmp = new Bitmap(200, 200);
+            using (var g = Graphics.FromImage(bmp))
+            {
+                g.Clear(Color.White);
+                using (var b = new SolidBrush(back))
+                {
+                    g.FillEllipse(b, 30, 30, 140, 140);
+                }
+                using (var sf = new StringFormat() { Alignment = StringAlignment.Center, LineAlignment = StringAlignment.Center })
+                using (var f = new Font("Microsoft Sans Serif", 36, FontStyle.Bold))
+                using (var b = new SolidBrush(Color.Black))
+                {
+                    g.DrawString(text, f, b, new RectangleF(0, 0, 200, 200), sf);
+                }
+            }
+            return bmp;
+        }
+
+        private Bitmap DrawRectangleBitmap(Color back, string text)
+        {
+            var bmp = new Bitmap(200, 200);
+            using (var g = Graphics.FromImage(bmp))
+            {
+                g.Clear(Color.White);
+                using (var b = new SolidBrush(back))
+                {
+                    g.FillRectangle(b, 30, 30, 140, 140);
+                }
+                using (var sf = new StringFormat() { Alignment = StringAlignment.Center, LineAlignment = StringAlignment.Center })
+                using (var f = new Font("Microsoft Sans Serif", 36, FontStyle.Bold))
+                using (var b = new SolidBrush(Color.Black))
+                {
+                    g.DrawString(text, f, b, new RectangleF(0, 0, 200, 200), sf);
+                }
+            }
+            return bmp;
+        }
+
+        private Bitmap DrawScissorsBitmap(Color color, string text)
+        {
+            var bmp = new Bitmap(200, 200);
+            using (var g = Graphics.FromImage(bmp))
+            {
+                g.Clear(Color.White);
+                using (var pen = new Pen(color, 8))
+                {
+                    g.DrawLine(pen, 50, 50, 150, 150);
+                    g.DrawLine(pen, 150, 50, 50, 150);
+                }
+                using (var sf = new StringFormat() { Alignment = StringAlignment.Center, LineAlignment = StringAlignment.Center })
+                using (var f = new Font("Microsoft Sans Serif", 32, FontStyle.Bold))
+                using (var b = new SolidBrush(Color.Black))
+                {
+                    g.DrawString(text, f, b, new RectangleF(0, 0, 200, 200), sf);
+                }
+            }
+            return bmp;
+        }
+
+        private void stoneButton_Click(object sender, EventArgs e)
+        {
+            PlayRound(Move.Stone);
+        }
+
+        private void paperButton_Click(object sender, EventArgs e)
+        {
+            PlayRound(Move.Paper);
+        }
+
+        private void scissorsButton_Click(object sender, EventArgs e)
+        {
+            PlayRound(Move.Scissors);
+        }
+
+        private void PlayRound(Move playerMove)
+        {
+            // 取得電腦出拳
+            Move comp = getCompChoice();
+
+            // 顯示雙方圖片
+            showPlayerImage(playerMove);
+            showComputerImage(comp);
+
+            // 判斷並顯示勝者
+            showWinner(playerMove, comp);
+        }
+
+        private Image GetImageForMove(Move m)
+        {
+            switch (m)
+            {
+                case Move.Stone: return stoneImage;
+                case Move.Paper: return paperImage;
+                case Move.Scissors: return scissorsImage;
+                default: return null;
+            }
+        }
+
+        // returns 1 if a beats b, -1 if b beats a, 0 if tie
+        private int CompareMoves(Move a, Move b)
+        {
+            if (a == b) return 0;
+            // stone beats scissors, scissors beats paper, paper beats stone
+            if ((a == Move.Stone && b == Move.Scissors) ||
+                (a == Move.Scissors && b == Move.Paper) ||
+                (a == Move.Paper && b == Move.Stone))
+                return 1;
+            return -1;
+        }
+
+        private void UpdateScoreLabels()
+        {
+            playerScoreLabel.Text = $"玩家：{playerWins} 勝";
+            computerScoreLabel.Text = $"電腦：{computerWins} 勝";
+        }
+
+        private void resetButton_Click(object sender, EventArgs e)
+        {
+            playerWins = 0;
+            computerWins = 0;
+            playerPictureBox.Image = null;
+            computerPictureBox.Image = null;
+            resultLabel.Text = "已重置，請開始新一輪遊戲。";
+            UpdateScoreLabels();
+            stoneButton.Enabled = true;
+            paperButton.Enabled = true;
+            scissorsButton.Enabled = true;
+        }
+
+        private void endButton_Click(object sender, EventArgs e)
+        {
+            string summary = $"遊戲結束\n玩家勝場：{playerWins}\n電腦勝場：{computerWins}";
+            MessageBox.Show(summary, "遊戲統計", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            stoneButton.Enabled = false;
+            paperButton.Enabled = false;
+            scissorsButton.Enabled = false;
+        }
+
+        // 在 Form 載入時初始化介面
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            playerPictureBox.Image = null;
+            computerPictureBox.Image = null;
+            resultLabel.Text = "請出拳：選擇 石頭 / 布 / 剪刀";
+            UpdateScoreLabels();
+        }
+    }
+}
