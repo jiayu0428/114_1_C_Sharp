@@ -1,0 +1,292 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.IO;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace Q2
+{
+    public partial class Form1 : Form
+    {
+        private const decimal OIL_CHANGE = 780m;
+        private const decimal LUBE = 540m;
+        private const decimal RADIATOR = 900m;
+        private const decimal TRANSMISSION = 2400m;
+        private const decimal INSPECTION = 450m;
+        private const decimal MUFFLER = 3000m;
+        private const decimal TIRE = 600m;
+        private const decimal LABOR_RATE_PER_HOUR = 600m;
+        private const decimal PARTS_TAX_RATE = 0.06m;
+
+        private List<RepairRecord> records = new List<RepairRecord>();
+
+        public Form1()
+        {
+            InitializeComponent();
+        }
+
+        private decimal OilLubeCharges()
+        {
+            decimal fee = 0m;
+            if (chkOilChange.Checked) fee += OIL_CHANGE;
+            if (chkLube.Checked) fee += LUBE;
+            return fee;
+        }
+
+        private decimal FlushCharges()
+        {
+            decimal fee = 0m;
+            if (chkRadiator.Checked) fee += RADIATOR;
+            if (chkTransmission.Checked) fee += TRANSMISSION;
+            return fee;
+        }
+
+        private decimal MiscCharges()
+        {
+            decimal fee = 0m;
+            if (chkInspection.Checked) fee += INSPECTION;
+            if (chkMuffler.Checked) fee += MUFFLER;
+            if (chkTireRotation.Checked) fee += TIRE;
+            return fee;
+        }
+
+        private decimal OtherCharges(out decimal partsCost, out decimal laborCost)
+        {
+            partsCost = 0m;
+            laborCost = 0m;
+
+            if (!decimal.TryParse(txtParts.Text.Trim(), out partsCost) || partsCost < 0)
+            {
+                partsCost = 0m; // invalid input treated as zero
+            }
+
+            if (!decimal.TryParse(txtHours.Text.Trim(), out decimal hours) || hours < 0)
+            {
+                hours = 0m;
+            }
+
+            laborCost = hours * LABOR_RATE_PER_HOUR;
+            return partsCost + laborCost;
+        }
+
+        private decimal TaxCharges(decimal partsCost)
+        {
+            return Math.Round(partsCost * PARTS_TAX_RATE, 2);
+        }
+
+        private decimal TotalCharges(decimal serviceAndLabor, decimal partsCost, decimal tax)
+        {
+            return serviceAndLabor + partsCost + tax;
+        }
+
+        private void calculateButton_Click(object sender, EventArgs e)
+        {
+            // validate inputs
+            if (!ValidateInputs())
+            {
+                MessageBox.Show("請確認輸入的數值正確且非負數。", "輸入錯誤", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            decimal oilLube = OilLubeCharges();
+            decimal flush = FlushCharges();
+            decimal misc = MiscCharges();
+            decimal serviceFees = oilLube + flush + misc;
+
+            decimal partsCost;
+            decimal laborCost;
+            OtherCharges(out partsCost, out laborCost);
+
+            decimal serviceAndLaborTotal = serviceFees + laborCost;
+            decimal tax = TaxCharges(partsCost);
+            decimal total = TotalCharges(serviceAndLaborTotal, partsCost, tax);
+
+            // update UI
+            lblServiceFeeValue.Text = serviceAndLaborTotal.ToString("C2");
+            lblLaborFeeValue.Text = laborCost.ToString("C2");
+            lblPartsFeeValue.Text = partsCost.ToString("C2");
+            lblTaxValue.Text = tax.ToString("C2");
+            lblTotalValue.Text = total.ToString("C2");
+
+            // add record to list and listbox
+            var rec = new RepairRecord
+            {
+                Date = DateTime.Now,
+                Customer = "Unknown",
+                Plate = "",
+                Service = BuildServiceDescription(),
+                PartsCost = partsCost,
+                LaborCost = laborCost
+            };
+            records.Add(rec);
+            lstDetails.Items.Add(string.Format("{0:yyyy-MM-dd HH:mm} - {1} - {2}", rec.Date, rec.Service, total.ToString("C2")));
+        }
+
+        private string BuildServiceDescription()
+        {
+            var items = new List<string>();
+            if (chkOilChange.Checked) items.Add("機油更換");
+            if (chkLube.Checked) items.Add("潤滑保養");
+            if (chkRadiator.Checked) items.Add("水箱清洗");
+            if (chkTransmission.Checked) items.Add("變速箱清洗");
+            if (chkInspection.Checked) items.Add("檢驗");
+            if (chkMuffler.Checked) items.Add("更換消音器");
+            if (chkTireRotation.Checked) items.Add("輪胎換位");
+            return items.Count > 0 ? string.Join(", ", items) : "無服務項目";
+        }
+
+        private bool ValidateInputs()
+        {
+            bool ok = true;
+            if (!string.IsNullOrWhiteSpace(txtParts.Text))
+            {
+                if (!decimal.TryParse(txtParts.Text.Trim(), out decimal p) || p < 0) ok = false;
+            }
+            if (!string.IsNullOrWhiteSpace(txtHours.Text))
+            {
+                if (!decimal.TryParse(txtHours.Text.Trim(), out decimal h) || h < 0) ok = false;
+            }
+            return ok;
+        }
+
+        private void clearButton_Click(object sender, EventArgs e)
+        {
+            ClearOilLube();
+            ClearFlushes();
+            ClearMisc();
+            ClearOther();
+            ClearFees();
+        }
+
+        private void ClearOilLube()
+        {
+            chkOilChange.Checked = false;
+            chkLube.Checked = false;
+        }
+
+        private void ClearFlushes()
+        {
+            chkRadiator.Checked = false;
+            chkTransmission.Checked = false;
+        }
+
+        private void ClearMisc()
+        {
+            chkInspection.Checked = false;
+            chkMuffler.Checked = false;
+            chkTireRotation.Checked = false;
+        }
+
+        private void ClearOther()
+        {
+            txtParts.Text = string.Empty;
+            txtHours.Text = string.Empty;
+        }
+
+        private void ClearFees()
+        {
+            lblServiceFeeValue.Text = "NT$0.00";
+            lblLaborFeeValue.Text = "NT$0.00";
+            lblPartsFeeValue.Text = "NT$0.00";
+            lblTaxValue.Text = "NT$0.00";
+            lblTotalValue.Text = "NT$0.00";
+        }
+
+        private void exitButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void saveButton_Click(object sender, EventArgs e)
+        {
+            if (records.Count == 0)
+            {
+                MessageBox.Show("目前沒有任何記錄可供儲存。", "無資料", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            SaveServiceDetailsToFile();
+        }
+
+        private void SaveServiceDetailsToFile()
+        {
+            using (SaveFileDialog sfd = new SaveFileDialog())
+            {
+                sfd.Filter = "文字檔 (*.txt)|*.txt|CSV 檔 (*.csv)|*.csv|所有檔案 (*.*)|*.*";
+                sfd.FileName = "RepairReport_" + DateTime.Now.ToString("yyyyMMdd_HHmmss") + ".txt";
+                if (sfd.ShowDialog() != DialogResult.OK) return;
+
+                try
+                {
+                    using (var sw = new StreamWriter(sfd.FileName, false, Encoding.UTF8))
+                    {
+                        sw.WriteLine("汽車維修報表");
+                        sw.WriteLine("產生時間: " + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
+                        sw.WriteLine(new string('=', 60));
+
+                        foreach (var r in records)
+                        {
+                            decimal serviceFees = CalculateServiceFeesFromDescription(r.Service);
+                            decimal parts = r.PartsCost;
+                            decimal labor = r.LaborCost;
+                            decimal serviceAndLabor = serviceFees + labor;
+                            decimal tax = TaxCharges(parts);
+                            decimal total = TotalCharges(serviceAndLabor, parts, tax);
+
+                            sw.WriteLine(string.Format("{0},{1},{2},{3},{4:0.00},{5:0.00},{6:0.00},{7:0.00}",
+                                r.Date.ToString("yyyy-MM-dd HH:mm:ss"),
+                                "", // customer/plate omitted
+                                labor / LABOR_RATE_PER_HOUR,
+                                r.Service,
+                                serviceAndLabor,
+                                parts,
+                                tax,
+                                total));
+                        }
+
+                        sw.WriteLine(new string('=', 60));
+                        sw.WriteLine("列印完畢");
+                    }
+
+                    MessageBox.Show("報表已儲存。", "儲存完成", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("儲存檔案時發生錯誤: " + ex.Message, "錯誤", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        private decimal CalculateServiceFeesFromDescription(string desc)
+        {
+            decimal f = 0m;
+            if (desc.Contains("機油更換")) f += OIL_CHANGE;
+            if (desc.Contains("潤滑保養")) f += LUBE;
+            if (desc.Contains("水箱清洗")) f += RADIATOR;
+            if (desc.Contains("變速箱清洗")) f += TRANSMISSION;
+            if (desc.Contains("檢驗")) f += INSPECTION;
+            if (desc.Contains("更換消音器")) f += MUFFLER;
+            if (desc.Contains("輪胎換位")) f += TIRE;
+            return f;
+        }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (records.Count == 0) return;
+            var dr = MessageBox.Show("程式結束前是否要儲存目前的維修明細?", "儲存確認", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
+            if (dr == DialogResult.Yes)
+            {
+                SaveServiceDetailsToFile();
+            }
+            else if (dr == DialogResult.Cancel)
+            {
+                e.Cancel = true;
+            }
+        }
+    }
+}

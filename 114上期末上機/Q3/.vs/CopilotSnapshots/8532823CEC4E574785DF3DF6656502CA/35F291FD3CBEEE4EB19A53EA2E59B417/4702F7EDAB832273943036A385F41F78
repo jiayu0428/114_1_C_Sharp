@@ -1,0 +1,133 @@
+﻿namespace Q3
+{
+    partial class Form1
+    {
+        /// <summary>
+        /// 設計工具所需的變數。
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// 清除任何使用中的資源。
+        /// </summary>
+        /// <param name="disposing">如果應該處置受控資源則為 true，否則為 false。</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form 設計工具產生的程式碼
+
+        /// <summary>
+        /// 此為設計工具支援所需的方法 - 請勿使用程式碼編輯器修改
+        /// 這個方法的內容。
+        /// </summary>
+        private void InitializeComponent()
+        {
+            this.components = new System.ComponentModel.Container();
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Text = "樂透號碼產生器";
+
+            // Create controls
+            this.font18 = new System.Drawing.Font("Microsoft Sans Serif", 18F);
+
+            // Number labels for generated numbers
+            this.lblNumbers = new System.Windows.Forms.Label[5];
+            for (int i = 0; i < 5; i++)
+            {
+                var lbl = new System.Windows.Forms.Label();
+                lbl.Font = this.font18;
+                lbl.AutoSize = false;
+                lbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+                lbl.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+                lbl.Size = new System.Drawing.Size(80, 50);
+                lbl.Location = new System.Drawing.Point(30 + i * 100, 30);
+                lbl.Name = "lblNumber" + i;
+                lbl.Text = "--";
+                this.Controls.Add(lbl);
+                this.lblNumbers[i] = lbl;
+            }
+
+            // Buttons
+            this.btnGenerate = new System.Windows.Forms.Button();
+            this.btnGenerate.Font = this.font18;
+            this.btnGenerate.Size = new System.Drawing.Size(200, 50);
+            this.btnGenerate.Location = new System.Drawing.Point(30, 110);
+            this.btnGenerate.Text = "產生號碼";
+            this.btnGenerate.Name = "btnGenerate";
+            this.btnGenerate.Click += new System.EventHandler(this.btnGenerate_Click);
+            this.Controls.Add(this.btnGenerate);
+
+            this.btnLoadDraw = new System.Windows.Forms.Button();
+            this.btnLoadDraw.Font = this.font18;
+            this.btnLoadDraw.Size = new System.Drawing.Size(200, 50);
+            this.btnLoadDraw.Location = new System.Drawing.Point(250, 110);
+            this.btnLoadDraw.Text = "讀取開獎號碼";
+            this.btnLoadDraw.Name = "btnLoadDraw";
+            this.btnLoadDraw.Click += new System.EventHandler(this.btnLoadDraw_Click);
+            this.Controls.Add(this.btnLoadDraw);
+
+            this.btnCompare = new System.Windows.Forms.Button();
+            this.btnCompare.Font = this.font18;
+            this.btnCompare.Size = new System.Drawing.Size(200, 50);
+            this.btnCompare.Location = new System.Drawing.Point(470, 110);
+            this.btnCompare.Text = "比對中獎";
+            this.btnCompare.Name = "btnCompare";
+            this.btnCompare.Enabled = false;
+            this.btnCompare.Click += new System.EventHandler(this.btnCompare_Click);
+            this.Controls.Add(this.btnCompare);
+
+            this.btnExit = new System.Windows.Forms.Button();
+            this.btnExit.Font = this.font18;
+            this.btnExit.Size = new System.Drawing.Size(200, 50);
+            this.btnExit.Location = new System.Drawing.Point(30, 180);
+            this.btnExit.Text = "離開";
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
+            this.Controls.Add(this.btnExit);
+
+            // ListBox to show draw numbers
+            this.lstDraw = new System.Windows.Forms.ListBox();
+            this.lstDraw.Font = this.font18;
+            this.lstDraw.Size = new System.Drawing.Size(200, 150);
+            this.lstDraw.Location = new System.Drawing.Point(470, 180);
+            this.lstDraw.Name = "lstDraw";
+            this.Controls.Add(this.lstDraw);
+
+            // Result label
+            this.lblResult = new System.Windows.Forms.Label();
+            this.lblResult.Font = this.font18;
+            this.lblResult.AutoSize = false;
+            this.lblResult.Size = new System.Drawing.Size(420, 50);
+            this.lblResult.Location = new System.Drawing.Point(30, 260);
+            this.lblResult.Name = "lblResult";
+            this.lblResult.Text = "結果：";
+            this.lblResult.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblResult.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Controls.Add(this.lblResult);
+
+            // OpenFileDialog
+            this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
+            this.openFileDialog.Filter = "Text Files|*.txt|All Files|*.*";
+            this.openFileDialog.Title = "選擇開獎號碼檔案";
+        }
+
+        #endregion
+
+        private System.Drawing.Font font18;
+        private System.Windows.Forms.Label[] lblNumbers;
+        private System.Windows.Forms.Button btnGenerate;
+        private System.Windows.Forms.Button btnLoadDraw;
+        private System.Windows.Forms.Button btnCompare;
+        private System.Windows.Forms.Button btnExit;
+        private System.Windows.Forms.ListBox lstDraw;
+        private System.Windows.Forms.Label lblResult;
+        private System.Windows.Forms.OpenFileDialog openFileDialog;
+    }
+}
+

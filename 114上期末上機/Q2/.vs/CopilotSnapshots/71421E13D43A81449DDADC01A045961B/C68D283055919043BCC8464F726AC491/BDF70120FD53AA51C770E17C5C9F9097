@@ -1,0 +1,21 @@
+﻿using System;
+
+namespace Q2
+{
+    public class RepairRecord
+    {
+        public DateTime Date { get; set; }
+        public string Customer { get; set; }
+        public string Plate { get; set; }
+        public string Service { get; set; }
+        public decimal PartsCost { get; set; }
+        public decimal LaborCost { get; set; }
+        public decimal Total => PartsCost + LaborCost;
+
+        public string ToCsv()
+        {
+            return string.Format("\"{0}\",\"{1}\",\"{2}\",\"{3}\",{4:0.00},{5:0.00},{6:0.00}",
+                Date.ToString("yyyy-MM-dd HH:mm:ss"), Customer, Plate, Service, PartsCost, LaborCost, Total);
+        }
+    }
+}
