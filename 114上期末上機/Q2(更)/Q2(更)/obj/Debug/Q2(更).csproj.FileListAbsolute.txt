@@ -1,0 +1,11 @@
+C:\Users\m303\Desktop\114_1_C_Sharp\114上期末上機\Q2(更)\Q2(更)\bin\Debug\Q2(更).exe.config
+C:\Users\m303\Desktop\114_1_C_Sharp\114上期末上機\Q2(更)\Q2(更)\bin\Debug\Q2(更).exe
+C:\Users\m303\Desktop\114_1_C_Sharp\114上期末上機\Q2(更)\Q2(更)\bin\Debug\Q2(更).pdb
+C:\Users\m303\Desktop\114_1_C_Sharp\114上期末上機\Q2(更)\Q2(更)\obj\Debug\Q2(更).csproj.AssemblyReference.cache
+C:\Users\m303\Desktop\114_1_C_Sharp\114上期末上機\Q2(更)\Q2(更)\obj\Debug\Q2_更_.Properties.Resources.resources
+C:\Users\m303\Desktop\114_1_C_Sharp\114上期末上機\Q2(更)\Q2(更)\obj\Debug\Q2(更).csproj.GenerateResource.cache
+C:\Users\m303\Desktop\114_1_C_Sharp\114上期末上機\Q2(更)\Q2(更)\obj\Debug\Q2(更).csproj.CoreCompileInputs.cache
+C:\Users\m303\Desktop\114_1_C_Sharp\114上期末上機\Q2(更)\Q2(更)\obj\Debug\Q2(更).exe
+C:\Users\m303\Desktop\114_1_C_Sharp\114上期末上機\Q2(更)\Q2(更)\obj\Debug\Q2(更).pdb
+C:\Users\m303\Desktop\114_1_C_Sharp\114上期末上機\Q2(更)\Q2(更)\obj\Debug\Q2(更).exe.config
+C:\Users\m303\Desktop\114_1_C_Sharp\114上期末上機\Q2(更)\Q2(更)\obj\Debug\Q2_更_.Form1.resources

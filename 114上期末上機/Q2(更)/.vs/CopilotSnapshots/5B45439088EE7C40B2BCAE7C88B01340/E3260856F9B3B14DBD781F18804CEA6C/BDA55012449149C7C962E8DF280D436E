@@ -1,0 +1,185 @@
+﻿namespace Q2_更_
+{
+    partial class Form1
+    {
+        /// <summary>
+        /// 設計工具所需的變數。
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        // UI controls
+        private System.Windows.Forms.GroupBox groupBoxOilLubrication;
+        private System.Windows.Forms.CheckBox checkBoxOilChange;
+        private System.Windows.Forms.CheckBox checkBoxLubrication;
+
+        private System.Windows.Forms.GroupBox groupBoxCleaning;
+        private System.Windows.Forms.CheckBox checkBoxRadiator;
+        private System.Windows.Forms.CheckBox checkBoxTransmission;
+
+        private System.Windows.Forms.GroupBox groupBoxOther;
+        private System.Windows.Forms.CheckBox checkBoxInspection;
+        private System.Windows.Forms.CheckBox checkBoxMuffler;
+        private System.Windows.Forms.CheckBox checkBoxTireRotation;
+
+        private System.Windows.Forms.Label labelParts;
+        private System.Windows.Forms.TextBox textBoxParts;
+
+        private System.Windows.Forms.Label labelHours;
+        private System.Windows.Forms.TextBox textBoxHours;
+
+        private System.Windows.Forms.Button buttonCalculate;
+        private System.Windows.Forms.Button buttonClear;
+        private System.Windows.Forms.Button buttonExit; // 新增離開按鈕
+
+        private System.Windows.Forms.GroupBox groupBoxResults;
+        private System.Windows.Forms.Label labelServiceFee;
+        private System.Windows.Forms.Label labelServiceFeeValue;
+        private System.Windows.Forms.Label labelLaborFee;
+        private System.Windows.Forms.Label labelLaborFeeValue;
+        private System.Windows.Forms.Label labelPartsFee;
+        private System.Windows.Forms.Label labelPartsFeeValue;
+        private System.Windows.Forms.Label labelTax;
+        private System.Windows.Forms.Label labelTaxValue;
+        private System.Windows.Forms.Label labelTotal;
+        private System.Windows.Forms.Label labelTotalValue;
+
+        /// <summary>
+        /// 清除任何使用中的資源。
+        /// </summary>
+        /// <param name="disposing">如果應該處置受控資源則為 true，否則為 false。</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form 設計工具產生的程式碼
+
+        /// <summary>
+        /// 此為設計工具支援所需的方法 - 請勿使用程式碼編輯器修改
+        /// 這個方法的內容。
+        /// </summary>
+        private void InitializeComponent()
+        {
+            this.groupBoxOilLubrication = new System.Windows.Forms.GroupBox();
+            this.checkBoxOilChange = new System.Windows.Forms.CheckBox();
+            this.checkBoxLubrication = new System.Windows.Forms.CheckBox();
+            this.groupBoxCleaning = new System.Windows.Forms.GroupBox();
+            this.checkBoxRadiator = new System.Windows.Forms.CheckBox();
+            this.checkBoxTransmission = new System.Windows.Forms.CheckBox();
+            this.groupBoxOther = new System.Windows.Forms.GroupBox();
+            this.checkBoxInspection = new System.Windows.Forms.CheckBox();
+            this.checkBoxMuffler = new System.Windows.Forms.CheckBox();
+            this.checkBoxTireRotation = new System.Windows.Forms.CheckBox();
+            this.labelParts = new System.Windows.Forms.Label();
+            this.textBoxParts = new System.Windows.Forms.TextBox();
+            this.labelHours = new System.Windows.Forms.Label();
+            this.textBoxHours = new System.Windows.Forms.TextBox();
+            this.buttonCalculate = new System.Windows.Forms.Button();
+            this.buttonClear = new System.Windows.Forms.Button();
+            this.buttonExit = new System.Windows.Forms.Button();
+            this.groupBoxResults = new System.Windows.Forms.GroupBox();
+            this.labelServiceFee = new System.Windows.Forms.Label();
+            this.labelServiceFeeValue = new System.Windows.Forms.Label();
+            this.labelLaborFee = new System.Windows.Forms.Label();
+            this.labelLaborFeeValue = new System.Windows.Forms.Label();
+            this.labelPartsFee = new System.Windows.Forms.Label();
+            this.labelPartsFeeValue = new System.Windows.Forms.Label();
+            this.labelTax = new System.Windows.Forms.Label();
+            this.labelTaxValue = new System.Windows.Forms.Label();
+            this.labelTotal = new System.Windows.Forms.Label();
+            this.labelTotalValue = new System.Windows.Forms.Label();
+            this.groupBoxOilLubrication.SuspendLayout();
+            this.groupBoxCleaning.SuspendLayout();
+            this.groupBoxOther.SuspendLayout();
+            this.groupBoxResults.SuspendLayout();
+            this.SuspendLayout();
+            // 
+            // groupBoxOilLubrication
+            // 
+            this.groupBoxOilLubrication.Controls.Add(this.checkBoxOilChange);
+            this.groupBoxOilLubrication.Controls.Add(this.checkBoxLubrication);
+            this.groupBoxOilLubrication.Location = new System.Drawing.Point(12, 12);
+            this.groupBoxOilLubrication.Name = "groupBoxOilLubrication";
+            this.groupBoxOilLubrication.Size = new System.Drawing.Size(250, 80);
+            this.groupBoxOilLubrication.TabIndex = 0;
+            this.groupBoxOilLubrication.TabStop = false;
+            this.groupBoxOilLubrication.Text = "機油與潤滑服務";
+            // 
+            // checkBoxOilChange
+            // 
+            this.checkBoxOilChange.Location = new System.Drawing.Point(10, 20);
+            this.checkBoxOilChange.Name = "checkBoxOilChange";
+            this.checkBoxOilChange.Size = new System.Drawing.Size(220, 20);
+            this.checkBoxOilChange.TabIndex = 0;
+            this.checkBoxOilChange.Text = "機油更換 (NT$780)";
+            // 
+            // checkBoxLubrication
+            // 
+            this.checkBoxLubrication.Location = new System.Drawing.Point(10, 45);
+            this.checkBoxLubrication.Name = "checkBoxLubrication";
+            this.checkBoxLubrication.Size = new System.Drawing.Size(220, 20);
+            this.checkBoxLubrication.TabIndex = 1;
+            this.checkBoxLubrication.Text = "潤滑保養 (NT$540)";
+            // 
+            // groupBoxCleaning
+            // 
+            this.groupBoxCleaning.Controls.Add(this.checkBoxRadiator);
+            this.groupBoxCleaning.Controls.Add(this.checkBoxTransmission);
+            this.groupBoxCleaning.Location = new System.Drawing.Point(12, 100);
+            this.groupBoxCleaning.Name = "groupBoxCleaning";
+            this.groupBoxCleaning.Size = new System.Drawing.Size(250, 80);
+            this.groupBoxCleaning.TabIndex = 1;
+            this.groupBoxCleaning.TabStop = false;
+            this.groupBoxCleaning.Text = "清洗服務";
+            // 
+            // checkBoxRadiator
+            // 
+            this.checkBoxRadiator.Location = new System.Drawing.Point(10, 20);
+            this.checkBoxRadiator.Name = "checkBoxRadiator";
+            this.checkBoxRadiator.Size = new System.Drawing.Size(220, 20);
+            this.checkBoxRadiator.TabIndex = 0;
+            this.checkBoxRadiator.Text = "水箱清洗 (NT$900)";
+            // 
+            // checkBoxTransmission
+            // 
+            this.checkBoxTransmission.Location = new System.Drawing.Point(10, 45);
+            this.checkBoxTransmission.Name = "checkBoxTransmission";
+            this.checkBoxTransmission.Size = new System.Drawing.Size(220, 20);
+            this.checkBoxTransmission.TabIndex = 1;
+            this.checkBoxTransmission.Text = "變速箱清洗 (NT$2,400)";
+            // 
+            // groupBoxOther
+            // 
+            this.groupBoxOther.Controls.Add(this.checkBoxInspection);
+            this.groupBoxOther.Controls.Add(this.checkBoxMuffler);
+            this.groupBoxOther.Controls.Add(this.checkBoxTireRotation);
+            this.groupBoxOther.Location = new System.Drawing.Point(12, 188);
+            this.groupBoxOther.Name = "groupBoxOther";
+            this.groupBoxOther.Size = new System.Drawing.Size(250, 110);
+            this.groupBoxOther.TabIndex = 2;
+            this.groupBoxOther.TabStop = false;
+            this.groupBoxOther.Text = "其他維修服務";
+            // 
+            // checkBoxInspection
+            // 
+            this.checkBoxInspection.Location = new System.Drawing.Point(10, 20);
+            this.checkBoxInspection.Name = "checkBoxInspection";
+            this.checkBoxInspection.Size = new System.Drawing.Size(220, 20);
+            this.checkBoxInspection.TabIndex = 0;
+            this.checkBoxInspection.Text = "檢驗 (NT$450)";
+            // 
+            // checkBoxMuffler
+            // 
+            this.checkBoxMuffler.Location = new System.Drawing.Point(10, 45);
+            this.checkBoxMuffler.Name = "checkBoxMuffler";
+            this.checkBoxMuffler.Size = new System.Drawing.Size(220, 20);
+            this.checkBoxMuffler.TabIndex = 1;
+            this.checkBoxMuffler.Text = "更換消音器 (NT$3,000)";
+            // 
+            // checkBoxTireRotation
+   
+

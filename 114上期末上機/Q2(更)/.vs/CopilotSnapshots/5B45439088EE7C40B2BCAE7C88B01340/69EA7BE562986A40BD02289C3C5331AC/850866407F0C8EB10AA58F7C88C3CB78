@@ -1,0 +1,233 @@
+﻿namespace Q2_更_
+{
+    partial class Form1
+    {
+        /// <summary>
+        /// 設計工具所需的變數。
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        // UI controls
+        private System.Windows.Forms.GroupBox groupBoxOilLubrication;
+        private System.Windows.Forms.CheckBox checkBoxOilChange;
+        private System.Windows.Forms.CheckBox checkBoxLubrication;
+
+        private System.Windows.Forms.GroupBox groupBoxCleaning;
+        private System.Windows.Forms.CheckBox checkBoxRadiator;
+        private System.Windows.Forms.CheckBox checkBoxTransmission;
+
+        private System.Windows.Forms.GroupBox groupBoxOther;
+        private System.Windows.Forms.CheckBox checkBoxInspection;
+        private System.Windows.Forms.CheckBox checkBoxMuffler;
+        private System.Windows.Forms.CheckBox checkBoxTireRotation;
+
+        private System.Windows.Forms.Label labelParts;
+        private System.Windows.Forms.NumericUpDown numericUpDownParts;
+
+        private System.Windows.Forms.Label labelHours;
+        private System.Windows.Forms.NumericUpDown numericUpDownHours;
+
+        private System.Windows.Forms.Button buttonCalculate;
+        private System.Windows.Forms.Button buttonClear;
+
+        private System.Windows.Forms.GroupBox groupBoxResults;
+        private System.Windows.Forms.Label labelServiceFee;
+        private System.Windows.Forms.Label labelServiceFeeValue;
+        private System.Windows.Forms.Label labelLaborFee;
+        private System.Windows.Forms.Label labelLaborFeeValue;
+        private System.Windows.Forms.Label labelPartsFee;
+        private System.Windows.Forms.Label labelPartsFeeValue;
+        private System.Windows.Forms.Label labelTax;
+        private System.Windows.Forms.Label labelTaxValue;
+        private System.Windows.Forms.Label labelTotal;
+        private System.Windows.Forms.Label labelTotalValue;
+
+        /// <summary>
+        /// 清除任何使用中的資源。
+        /// </summary>
+        /// <param name="disposing">如果應該處置受控資源則為 true，否則為 false。</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form 設計工具產生的程式碼
+
+        /// <summary>
+        /// 此為設計工具支援所需的方法 - 請勿使用程式碼編輯器修改
+        /// 這個方法的內容。
+        /// </summary>
+        private void InitializeComponent()
+        {
+            this.components = new System.ComponentModel.Container();
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(800, 500);
+            this.Text = "汽車維修費用計算系統";
+
+            // Oil & Lubrication group
+            this.groupBoxOilLubrication = new System.Windows.Forms.GroupBox();
+            this.groupBoxOilLubrication.Text = "機油與潤滑服務";
+            this.groupBoxOilLubrication.SetBounds(12, 12, 250, 80);
+
+            this.checkBoxOilChange = new System.Windows.Forms.CheckBox();
+            this.checkBoxOilChange.Text = "機油更換 (NT$780)";
+            this.checkBoxOilChange.SetBounds(10, 20, 220, 20);
+
+            this.checkBoxLubrication = new System.Windows.Forms.CheckBox();
+            this.checkBoxLubrication.Text = "潤滑保養 (NT$540)";
+            this.checkBoxLubrication.SetBounds(10, 45, 220, 20);
+
+            this.groupBoxOilLubrication.Controls.Add(this.checkBoxOilChange);
+            this.groupBoxOilLubrication.Controls.Add(this.checkBoxLubrication);
+
+            // Cleaning group
+            this.groupBoxCleaning = new System.Windows.Forms.GroupBox();
+            this.groupBoxCleaning.Text = "清洗服務";
+            this.groupBoxCleaning.SetBounds(12, 100, 250, 80);
+
+            this.checkBoxRadiator = new System.Windows.Forms.CheckBox();
+            this.checkBoxRadiator.Text = "水箱清洗 (NT$900)";
+            this.checkBoxRadiator.SetBounds(10, 20, 220, 20);
+
+            this.checkBoxTransmission = new System.Windows.Forms.CheckBox();
+            this.checkBoxTransmission.Text = "變速箱清洗 (NT$2,400)";
+            this.checkBoxTransmission.SetBounds(10, 45, 220, 20);
+
+            this.groupBoxCleaning.Controls.Add(this.checkBoxRadiator);
+            this.groupBoxCleaning.Controls.Add(this.checkBoxTransmission);
+
+            // Other group
+            this.groupBoxOther = new System.Windows.Forms.GroupBox();
+            this.groupBoxOther.Text = "其他維修服務";
+            this.groupBoxOther.SetBounds(12, 188, 250, 110);
+
+            this.checkBoxInspection = new System.Windows.Forms.CheckBox();
+            this.checkBoxInspection.Text = "檢驗 (NT$450)";
+            this.checkBoxInspection.SetBounds(10, 20, 220, 20);
+
+            this.checkBoxMuffler = new System.Windows.Forms.CheckBox();
+            this.checkBoxMuffler.Text = "更換消音器 (NT$3,000)";
+            this.checkBoxMuffler.SetBounds(10, 45, 220, 20);
+
+            this.checkBoxTireRotation = new System.Windows.Forms.CheckBox();
+            this.checkBoxTireRotation.Text = "輪胎換位 (NT$600)";
+            this.checkBoxTireRotation.SetBounds(10, 70, 220, 20);
+
+            this.groupBoxOther.Controls.Add(this.checkBoxInspection);
+            this.groupBoxOther.Controls.Add(this.checkBoxMuffler);
+            this.groupBoxOther.Controls.Add(this.checkBoxTireRotation);
+
+            // Parts cost
+            this.labelParts = new System.Windows.Forms.Label();
+            this.labelParts.Text = "零件費用 (NT$):";
+            this.labelParts.SetBounds(280, 20, 120, 20);
+
+            this.numericUpDownParts = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDownParts.DecimalPlaces = 0;
+            this.numericUpDownParts.Maximum = 1000000;
+            this.numericUpDownParts.Minimum = 0;
+            this.numericUpDownParts.Increment = 100;
+            this.numericUpDownParts.SetBounds(400, 18, 120, 24);
+
+            // Labor hours
+            this.labelHours = new System.Windows.Forms.Label();
+            this.labelHours.Text = "工時 (小時):";
+            this.labelHours.SetBounds(280, 60, 120, 20);
+
+            this.numericUpDownHours = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDownHours.DecimalPlaces = 1;
+            this.numericUpDownHours.Maximum = 100;
+            this.numericUpDownHours.Minimum = 0;
+            this.numericUpDownHours.Increment = 0.5M;
+            this.numericUpDownHours.SetBounds(400, 58, 120, 24);
+
+            // Buttons
+            this.buttonCalculate = new System.Windows.Forms.Button();
+            this.buttonCalculate.Text = "計算";
+            this.buttonCalculate.SetBounds(280, 100, 100, 30);
+            this.buttonCalculate.Click += new System.EventHandler(this.buttonCalculate_Click);
+
+            this.buttonClear = new System.Windows.Forms.Button();
+            this.buttonClear.Text = "清除";
+            this.buttonClear.SetBounds(420, 100, 100, 30);
+            this.buttonClear.Click += new System.EventHandler(this.buttonClear_Click);
+
+            // Results group
+            this.groupBoxResults = new System.Windows.Forms.GroupBox();
+            this.groupBoxResults.Text = "費用明細";
+            this.groupBoxResults.SetBounds(12, 310, 760, 170);
+
+            this.labelServiceFee = new System.Windows.Forms.Label();
+            this.labelServiceFee.Text = "服務與工資總額:";
+            this.labelServiceFee.SetBounds(10, 25, 150, 20);
+
+            this.labelServiceFeeValue = new System.Windows.Forms.Label();
+            this.labelServiceFeeValue.Text = "NT$ 0";
+            this.labelServiceFeeValue.SetBounds(170, 25, 200, 20);
+
+            this.labelLaborFee = new System.Windows.Forms.Label();
+            this.labelLaborFee.Text = "工時費用:";
+            this.labelLaborFee.SetBounds(10, 50, 150, 20);
+
+            this.labelLaborFeeValue = new System.Windows.Forms.Label();
+            this.labelLaborFeeValue.Text = "NT$ 0";
+            this.labelLaborFeeValue.SetBounds(170, 50, 200, 20);
+
+            this.labelPartsFee = new System.Windows.Forms.Label();
+            this.labelPartsFee.Text = "零件費用:";
+            this.labelPartsFee.SetBounds(10, 75, 150, 20);
+
+            this.labelPartsFeeValue = new System.Windows.Forms.Label();
+            this.labelPartsFeeValue.Text = "NT$ 0";
+            this.labelPartsFeeValue.SetBounds(170, 75, 200, 20);
+
+            this.labelTax = new System.Windows.Forms.Label();
+            this.labelTax.Text = "稅金 (6%):";
+            this.labelTax.SetBounds(10, 100, 150, 20);
+
+            this.labelTaxValue = new System.Windows.Forms.Label();
+            this.labelTaxValue.Text = "NT$ 0";
+            this.labelTaxValue.SetBounds(170, 100, 200, 20);
+
+            this.labelTotal = new System.Windows.Forms.Label();
+            this.labelTotal.Text = "總費用:";
+            this.labelTotal.Font = new System.Drawing.Font(this.labelTotal.Font, System.Drawing.FontStyle.Bold);
+            this.labelTotal.SetBounds(10, 125, 150, 25);
+
+            this.labelTotalValue = new System.Windows.Forms.Label();
+            this.labelTotalValue.Text = "NT$ 0";
+            this.labelTotalValue.Font = new System.Drawing.Font(this.labelTotalValue.Font, System.Drawing.FontStyle.Bold);
+            this.labelTotalValue.SetBounds(170, 125, 200, 25);
+
+            this.groupBoxResults.Controls.Add(this.labelServiceFee);
+            this.groupBoxResults.Controls.Add(this.labelServiceFeeValue);
+            this.groupBoxResults.Controls.Add(this.labelLaborFee);
+            this.groupBoxResults.Controls.Add(this.labelLaborFeeValue);
+            this.groupBoxResults.Controls.Add(this.labelPartsFee);
+            this.groupBoxResults.Controls.Add(this.labelPartsFeeValue);
+            this.groupBoxResults.Controls.Add(this.labelTax);
+            this.groupBoxResults.Controls.Add(this.labelTaxValue);
+            this.groupBoxResults.Controls.Add(this.labelTotal);
+            this.groupBoxResults.Controls.Add(this.labelTotalValue);
+
+            // Add controls to form
+            this.Controls.Add(this.groupBoxOilLubrication);
+            this.Controls.Add(this.groupBoxCleaning);
+            this.Controls.Add(this.groupBoxOther);
+            this.Controls.Add(this.labelParts);
+            this.Controls.Add(this.numericUpDownParts);
+            this.Controls.Add(this.labelHours);
+            this.Controls.Add(this.numericUpDownHours);
+            this.Controls.Add(this.buttonCalculate);
+            this.Controls.Add(this.buttonClear);
+            this.Controls.Add(this.groupBoxResults);
+        }
+
+        #endregion
+    }
+}
+

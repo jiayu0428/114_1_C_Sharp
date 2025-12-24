@@ -1,0 +1,108 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace Q2_更_
+{
+    public partial class Form1 : Form
+    {
+        // Price constants
+        private const decimal PRICE_OIL_CHANGE = 780m;
+        private const decimal PRICE_LUBRICATION = 540m;
+        private const decimal PRICE_RADIATOR = 900m;
+        private const decimal PRICE_TRANSMISSION = 2400m;
+        private const decimal PRICE_INSPECTION = 450m;
+        private const decimal PRICE_MUFFLER = 3000m;
+        private const decimal PRICE_TIRE_ROTATION = 600m;
+        private const decimal LABOR_RATE = 600m; // per hour
+        private const decimal PARTS_TAX_RATE = 0.06m; // 6%
+
+        public Form1()
+        {
+            InitializeComponent();
+            // Set default values
+            numericUpDownParts.Value = 0;
+            numericUpDownHours.Value = 0;
+        }
+
+        private void buttonCalculate_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // Validate inputs
+                if (numericUpDownParts.Value < 0)
+                {
+                    MessageBox.Show("請輸入非負的零件費用。", "輸入錯誤", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                if (numericUpDownHours.Value < 0)
+                {
+                    MessageBox.Show("請輸入非負的工時。", "輸入錯誤", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                // Calculate selected service fees
+                decimal serviceFees = 0m;
+                if (checkBoxOilChange.Checked) serviceFees += PRICE_OIL_CHANGE;
+                if (checkBoxLubrication.Checked) serviceFees += PRICE_LUBRICATION;
+                if (checkBoxRadiator.Checked) serviceFees += PRICE_RADIATOR;
+                if (checkBoxTransmission.Checked) serviceFees += PRICE_TRANSMISSION;
+                if (checkBoxInspection.Checked) serviceFees += PRICE_INSPECTION;
+                if (checkBoxMuffler.Checked) serviceFees += PRICE_MUFFLER;
+                if (checkBoxTireRotation.Checked) serviceFees += PRICE_TIRE_ROTATION;
+
+                // Labor fee
+                decimal hours = numericUpDownHours.Value;
+                decimal laborFee = hours * LABOR_RATE;
+
+                decimal serviceAndLaborTotal = serviceFees + laborFee;
+
+                // Parts and tax
+                decimal partsFee = numericUpDownParts.Value;
+                decimal tax = Math.Round(partsFee * PARTS_TAX_RATE, 2);
+
+                decimal total = serviceAndLaborTotal + partsFee + tax;
+
+                // Display with currency formatting (NT$)
+                labelServiceFeeValue.Text = serviceAndLaborTotal.ToString("C0");
+                labelLaborFeeValue.Text = laborFee.ToString("C0");
+                labelPartsFeeValue.Text = partsFee.ToString("C0");
+                labelTaxValue.Text = tax.ToString("C0");
+                labelTotalValue.Text = total.ToString("C0");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("計算時發生錯誤: " + ex.Message, "錯誤", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void buttonClear_Click(object sender, EventArgs e)
+        {
+            // Clear selections and inputs
+            checkBoxOilChange.Checked = false;
+            checkBoxLubrication.Checked = false;
+            checkBoxRadiator.Checked = false;
+            checkBoxTransmission.Checked = false;
+            checkBoxInspection.Checked = false;
+            checkBoxMuffler.Checked = false;
+            checkBoxTireRotation.Checked = false;
+
+            numericUpDownParts.Value = 0;
+            numericUpDownHours.Value = 0;
+
+            // Reset displays
+            labelServiceFeeValue.Text = "NT$ 0";
+            labelLaborFeeValue.Text = "NT$ 0";
+            labelPartsFeeValue.Text = "NT$ 0";
+            labelTaxValue.Text = "NT$ 0";
+            labelTotalValue.Text = "NT$ 0";
+        }
+    }
+}
